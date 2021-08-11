@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<main class="container">
+    <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">주식 입력</h4>
+        <form method="GET" action="/addStock" class="needs-validation" novalidate="">
+            <div class="row">
+                <div class="col">
+                    <label for="firstName" class="form-label">종목 이름</label>
+                    <input type="text" class="form-control" name="stockName" placeholder="" value="" required="">
+                    <div class="invalid-feedback">
+                    Valid stock name is required.
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label for="lastName" class="form-label">수량</label>
+                    <input type="number" class="form-control" name="stockAmount" min="1">
+                    <div class="invalid-feedback">
+                    Stock amount is required.
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label for="username" class="form-label">평균단가</label>
+                    <input type="number" class="form-control" name="avgPrice" min="1">
+                    <div class="invalid-feedback">
+                        Average Price is required.
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="country" class="form-label">증권계좌</label>
+                    <select class="form-select" id="country" required="">
+                    <option value="">Choose...</option>
+                    <option>키움</option>
+                    <option>미래에셋</option>
+                    <option>한국투자</option>
+                    <option>토스</option>
+                    </select>
+                    <div class="invalid-feedback">
+                    Please select a valid country.
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-primary" type="submit" name="submit_button" value="buy">추가</button>
+                        <button class="btn btn-primary" type="submit" name="submit_button" value="buy">매도</button>
+                    </div>
+                </div>
+                <!-- <button class="w-50 btn btn-primary btn-lg col" type="submit">추가</button> -->
+            </div>
+            <hr class="my-4">
+        </form>
+    </div>
+    {{ script|safe }}
+</main>
+
+{% endblock contents %}
